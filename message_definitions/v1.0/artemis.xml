@@ -132,7 +132,7 @@
   </enums>
 
   <messages>
-    <message id="203" name="BEACON_COMMON_PARAM">
+    <message id="203" name="ARTEMIS_COMMON_PARAM">
       <description>Send common parameters, both direction.</description>
       <field type="int32_t" name="function_settings">Parameter 1, ennable or disable some function: sensor, function, etc.</field>
       <field type="int32_t" name="height">Parameter 2, with unit cm.</field>
