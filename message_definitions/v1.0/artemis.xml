@@ -19,7 +19,7 @@
       </entry>
 
     </enum>
-    
+
     <enum name="MAV_CMD">
       <description>Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data.</description>
       <entry value="60001" name="MAV_CMD_GET_POINT_A">
@@ -116,7 +116,7 @@
         <param index="7">Empty</param>
       </entry>
 
-  	  <entry value="60025" name="MAV_CMD_CALI_RESULT">
+      <entry value="60025" name="MAV_CMD_CALI_RESULT">
         <description>Request/Response result of calibration.</description>
         <param index="1">calibration result</param>
         <param index="2">calibration flag: 0:invalid, 1:valid</param>
@@ -128,10 +128,129 @@
       </entry>
 
     </enum>
-    
+
+    <enum name="ARTEMIS_CMD">
+      <description>Artemis Command to be executed by the MAV.</description>
+      <!-- 501-699 for Fly Feature.                               -->
+      <entry value="501" name="ARTEMIS_CMD_SET_AUTO_HEIGHT">
+        <description>Set Auto Mode target height.</description>
+      </entry>
+      <entry value="502" name="ARTEMIS_CMD_GET_AUTO_HEIGHT">
+        <description>Get Auto Mode target height.</description>
+      </entry>
+      <entry value="503" name="ARTEMIS_CMD_AUTO_HEIGHT">
+        <description>Auto Mode target height.</description>
+      </entry>
+
+      <entry value="504" name="ARTEMIS_CMD_SET_AUTO_AGR_WIDTH">
+        <description>Set Auto Mode AGR Spray width.</description>
+      </entry>
+      <entry value="505" name="ARTEMIS_CMD_GET_AUTO_AGR_WIDTH">
+        <description>Get Auto Mode AGR Spray width.</description>
+      </entry>
+      <entry value="506" name="ARTEMIS_CMD_AUTO_AGR_WIDTH">
+        <description>Auto Mode AGR Spray width.</description>
+      </entry>
+
+
+      <entry value="507" name="ARTEMIS_CMD_SET_AUTO_GND_SPEED">
+        <description>Set Auto Mode target ground speed.</description>
+      </entry>
+      <entry value="508" name="ARTEMIS_CMD_GET_AUTO_GND_SPEED">
+        <description>Get Auto Mode target ground speed.</description>
+      </entry>
+      <entry value="509" name="ARTEMIS_CMD_AUTO_GND_SPEED">
+        <description>Auto Mode target ground speed.</description>
+      </entry>
+
+      <!--App send set: 1, command mav to get current position as point A; or 2, app sent a valid position data to mav.-->
+      <entry value="521" name="ARTEMIS_CMD_SET_AB_POINT_A">
+        <description>Set AB Mode Base Line Point A.</description>
+      </entry>
+      <entry value="522" name="ARTEMIS_CMD_GET_AB_POINT_A">
+        <description>Get AB Mode Base Line Point A.</description>
+      </entry>
+      <entry value="523" name="ARTEMIS_CMD_AB_POINT_A">
+        <description>Point A.</description>
+      </entry>
+
+      <entry value="524" name="ARTEMIS_CMD_SET_AB_POINT_B">
+        <description>Set AB Mode Base Line Point B.</description>
+      </entry>
+      <entry value="525" name="ARTEMIS_CMD_GET_AB_POINT_B">
+        <description>Get AB Mode Base Line Point B.</description>
+      </entry>
+      <entry value="526" name="ARTEMIS_CMD_AB_POINT_B">
+        <description>Point B.</description>
+      </entry>
+
+      <entry value="527" name="ARTEMIS_CMD_SET_AB_POINTS_AB">
+        <description>Set AB Mode Base Line Points AB , Shift Direction, width.</description>
+      </entry>
+      <entry value="528" name="ARTEMIS_CMD_GET_AB_POINTS_AB">
+        <description>Get AB Mode Base Line Points AB, Shift Direction, width.</description>
+      </entry>
+      <entry value="529" name="ARTEMIS_CMD_AB_POINTS_AB">
+        <description>Points AB, Shift Direction, width.</description>
+      </entry>
+
+      <entry value="530" name="ARTEMIS_CMD_SET_BREAK_POINT">
+        <description>Set Break Point.</description>
+      </entry>
+      <entry value="531" name="ARTEMIS_CMD_GET_BREAK_POINT">
+        <description>Get Break Point.</description>
+      </entry>
+      <entry value="532" name="ARTEMIS_CMD_BREAK_POINT">
+        <description>Break Point.</description>
+      </entry>
+
+
+
+      <!-- 701-799 for Task sytem feature.                               -->
+      <entry value="601" name="ARTEMIS_CMD_SET_AGR_SPRAYER_FLOW">
+        <description>Set AGR Sprayer flow.</description>
+      </entry>
+
+      <entry value="602" name="ARTEMIS_CMD_SET_AGR_SPRAYER_CALI">
+        <description>Set AGR Sprayer flow.</description>
+      </entry>
+
+    </enum>
+
   </enums>
 
   <messages>
+
+    <message id="207" name="ARTEMIS_COMMAND_SHORT">
+      <description>Send a command with up to seven parameters to the MAV. The command microservice is documented at https://mavlink.io/en/services/command.html</description>
+      <field type="uint8_t" name="target_system">System which should execute the command</field>
+      <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+      <field type="uint16_t" name="command" enum="ARTEMIS_CMD">Command ID (of command to send).</field>
+      <field type="int32_t" name="param1">Parameter 1 (for the specific command).</field>
+      <field type="int32_t" name="param2">Parameter 2 (for the specific command).</field>
+      <field type="int32_t" name="param3">Parameter 3 (for the specific command).</field> 
+    </message>
+    <message id="208" name="ARTEMIS_COMMAND_LONG">
+      <description>Send a command with up to seven parameters to the MAV. The command microservice is documented at https://mavlink.io/en/services/command.html</description>
+      <field type="uint8_t" name="target_system">System which should execute the command</field>
+      <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+      <field type="uint16_t" name="command" enum="ARTEMIS_CMD">Command ID (of command to send).</field>
+      <field type="int32_t" name="param1">Parameter 1 (for the specific command).</field>
+      <field type="int32_t" name="param2">Parameter 2 (for the specific command).</field>
+      <field type="int32_t" name="param3">Parameter 3 (for the specific command).</field>
+      <field type="int32_t" name="param4">Parameter 4 (for the specific command).</field>
+      <field type="int32_t" name="param5">Parameter 5 (for the specific command).</field>
+      <field type="int32_t" name="param6">Parameter 6 (for the specific command).</field>
+      <field type="int32_t" name="param7">Parameter 7 (for the specific command).</field>
+    </message>
+
+    <message id="209" name="ARTEMIS_COMMAND_ACK">
+      <description>Report status of a command. Includes feedback whether the command was executed. The command microservice is documented at https://mavlink.io/en/services/command.html</description>
+      <field type="uint16_t" name="command" enum="ARTEMIS_CMD">Command ID (of acknowledged command).</field>
+      <field type="uint8_t" name="result" enum="MAV_RESULT">Result of command.</field>
+    </message>
+
+
     <message id="203" name="ARTEMIS_COMMON_PARAM">
       <description>Send common parameters, both direction.</description>
       <field type="int32_t" name="function_settings">Parameter 1, ennable or disable some function: sensor, function, etc.</field>
@@ -158,16 +277,6 @@
     <message id="206" name="SPECIAL_POINT_INFO_REQUEST">
       <description>Request special_point_info.</description>
       <field type="uint8_t" name="point_type">point type, 1: break point; 2: A point; 3: B point </field>
-    </message>
-    <message id="207" name="BEACON_STATUS">
-      <description>Request special_point_info.</description>
-      <field type="uint8_t" name="type">point type, 0: nomal; 1-255 reserve for special type of vehicle or payload</field>
-      <field type="uint16_t" name="beacon_sensors_present">itmask showing which sensors are present. Value of 0: not present. Value of 1: present</field>
-      <field type="uint16_t" name="beacon_sensors_enabled">Bitmask showing which sensors are enabled:  Value of 0: not enabled. Value of 1: enabled. </field>
-      <field type="uint32_t" name="beacon_sensors_status">Bitmask showing which sensors' status, double bits indicate one sensor status.</field>
-      <field type="uint16_t" name="beacon_node_present">itmask showing which node are present. Value of 0: not present. Value of 1: present</field>
-      <field type="uint16_t" name="beacon_node_enabled">Bitmask showing which node are enabled:  Value of 0: not enabled. Value of 1: enabled. </field>
-      <field type="uint32_t" name="beacon_node_status">Bitmask showing which nodes' status, double bits indicate one node status</field>
     </message>
   </messages>
 </mavlink>
