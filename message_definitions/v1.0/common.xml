@@ -2220,6 +2220,9 @@
       <entry value="12" name="MAV_DATA_STREAM_EXTRA3">
         <description>Dependent on the autopilot</description>
       </entry>
+      <entry value="13" name="MAV_DATA_STREAM_GID_AUX">
+        <description>Dependent on the autopilot</description>
+      </entry>
     </enum>
     <enum name="MAV_ROI">
       <description>THIS INTERFACE IS DEPRECATED AS OF JANUARY 2018. Please use MAV_CMD_DO_SET_ROI_* messages instead. The ROI (region of interest) for the vehicle. This can be

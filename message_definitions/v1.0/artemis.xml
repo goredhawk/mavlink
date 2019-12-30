@@ -217,6 +217,20 @@
 
     </enum>
 
+    <enum name="SPECIAL_POINT_TYPE">
+      <description>Special point type</description>
+      <entry value="1" name="SPECIAL_POINT_AB_A">
+        <description>AB Mode: Point A</description>
+      </entry>
+      <entry value="2" name="SPECIAL_POINT_AB_B">
+        <description>AB Mode: Point B</description>
+      </entry>
+      <entry value="3" name="SPECIAL_POINT_BREAK_POINT">
+        <description>Break Point</description>
+      </entry>
+
+    </enum>
+
   </enums>
 
   <messages>
@@ -228,7 +242,7 @@
       <field type="uint16_t" name="command" enum="ARTEMIS_CMD">Command ID (of command to send).</field>
       <field type="int32_t" name="param1">Parameter 1 (for the specific command).</field>
       <field type="int32_t" name="param2">Parameter 2 (for the specific command).</field>
-      <field type="int32_t" name="param3">Parameter 3 (for the specific command).</field> 
+      <field type="int32_t" name="param3">Parameter 3 (for the specific command).</field>
     </message>
     <message id="208" name="ARTEMIS_COMMAND_LONG">
       <description>Send a command with up to seven parameters to the MAV. The command microservice is documented at https://mavlink.io/en/services/command.html</description>
