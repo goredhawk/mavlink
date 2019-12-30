@@ -215,6 +215,10 @@
         <description>Set AGR Sprayer flow.</description>
       </entry>
 
+      <entry value="611" name="ARTEMIS_CMD_FINISH_WORK">
+        <description>Finish current work.</description>
+      </entry>
+
     </enum>
 
     <enum name="SPECIAL_POINT_TYPE">
