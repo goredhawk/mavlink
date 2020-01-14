@@ -205,7 +205,6 @@
       </entry>
 
 
-
       <!-- 701-799 for Task sytem feature.                               -->
       <entry value="601" name="ARTEMIS_CMD_SET_AGR_SPRAYER_FLOW">
         <description>Set AGR Sprayer flow.</description>
@@ -215,8 +214,16 @@
         <description>Set AGR Sprayer flow.</description>
       </entry>
 
-      <entry value="611" name="ARTEMIS_CMD_FINISH_WORK">
-        <description>Finish current work.</description>
+      <entry value="611" name="ARTEMIS_CMD_PAUSE_WORK">
+        <description>Pause current work.</description>
+      </entry>
+
+      <entry value="612" name="ARTEMIS_CMD_RESUME_WORK">
+        <description>Resume unfinished work.</description>
+      </entry>
+
+      <entry value="613" name="ARTEMIS_CMD_TERMINATE_WORK">
+        <description>Terminate current work.</description>
       </entry>
 
     </enum>
