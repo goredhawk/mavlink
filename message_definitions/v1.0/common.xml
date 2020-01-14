@@ -2375,6 +2375,9 @@
       <entry value="15" name="MAV_MISSION_OPERATION_CANCELLED">
         <description>Current mission operation cancelled (e.g. mission upload, mission download).</description>
       </entry>
+      <entry value="16" name="MAV_MISSION_CHECK_UPLOAD_COMPLETE">
+        <description>Check mission waypoints upload is complete or not.</description>
+      </entry>
     </enum>
     <enum name="MAV_SEVERITY">
       <description>Indicates the severity level, generally used for status messages to indicate their relative urgency. Based on RFC-5424 using expanded definitions at: http://www.kiwisyslog.com/kb/info:-syslog-message-levels/.</description>
