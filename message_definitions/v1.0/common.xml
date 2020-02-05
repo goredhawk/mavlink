@@ -2324,6 +2324,9 @@
       <entry value="4" name="MAV_RESULT_FAILED">
         <description>Command executed, but failed</description>
       </entry>
+      <entry value="5" name="MAV_RESULT_NO_ACK">
+        <description>Command do not send ack</description>
+      </entry>
     </enum>
     <enum name="MAV_MISSION_RESULT">
       <description>Result of mission operation (in a MISSION_ACK message).</description>
