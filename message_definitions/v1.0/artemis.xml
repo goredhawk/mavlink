@@ -204,6 +204,13 @@
         <description>Break Point.</description>
       </entry>
 
+      <entry value="541" name="ARTEMIS_CMD_GET_WPS_COUNT">
+        <description>Get Wps Count.</description>
+      </entry>
+
+      <entry value="542" name="ARTEMIS_CMD_WPS_COUNT">
+        <description>Wps Count.</description>
+      </entry>
 
       <!-- 701-799 for Task sytem feature.                               -->
       <entry value="601" name="ARTEMIS_CMD_SET_AGR_SPRAYER_FLOW">
@@ -214,16 +221,35 @@
         <description>Set AGR Sprayer flow.</description>
       </entry>
 
-      <entry value="611" name="ARTEMIS_CMD_PAUSE_WORK">
+      <entry value="610" name="ARTEMIS_CMD_SET_AUTO_WP_SOURCE">
+        <description>Set AUTO Mode WP Source: 0, Auto; 1: AB.</description>
+      </entry>
+      <entry value="611" name="ARTEMIS_CMD_GET_AUTO_WP_SOURCE">
+        <description>Get AUTO Mode WP Source.</description>
+      </entry>
+      <entry value="612" name="ARTEMIS_CMD_AUTO_WP_SOURCE">
+        <description>AUTO Mode WP Source.</description>
+      </entry>
+
+
+      <entry value="621" name="ARTEMIS_CMD_PAUSE_WORK">
         <description>Pause current work.</description>
       </entry>
 
-      <entry value="612" name="ARTEMIS_CMD_RESUME_WORK">
+      <entry value="622" name="ARTEMIS_CMD_RESUME_WORK">
         <description>Resume unfinished work.</description>
       </entry>
 
-      <entry value="613" name="ARTEMIS_CMD_TERMINATE_WORK">
+      <entry value="623" name="ARTEMIS_CMD_TERMINATE_WORK">
         <description>Terminate current work.</description>
+      </entry>
+
+      <entry value="624" name="ARTEMIS_CMD_CHECK_MISSION_COMPLETE">
+        <description>Report the mission is complete.</description>
+      </entry>
+
+      <entry value="625" name="ARTEMIS_CMD_MISSION_COMPLETE">
+        <description>Report the mission is complete.</description>
       </entry>
 
     </enum>
