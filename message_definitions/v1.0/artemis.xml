@@ -252,6 +252,10 @@
         <description>Report the mission is complete.</description>
       </entry>
 
+      <entry value="630" name="ARTEMIS_CMD_CTRL_APMSG_BROADCAST">
+        <description>Control Ap Message: stop broadcast, or something else.</description>
+      </entry>
+
     </enum>
 
     <enum name="SPECIAL_POINT_TYPE">
